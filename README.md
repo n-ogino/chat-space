@@ -27,7 +27,7 @@ Things you may want to cover:
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false|
+|name|string|null: false|
 
 ### Association
 - has_many :group_users
@@ -53,7 +53,6 @@ Things you may want to cover:
 
 ### Association
 - has_many :group_users
-  has_many :groups
   has_many :messages
 
 
