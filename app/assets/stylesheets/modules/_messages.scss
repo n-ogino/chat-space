@@ -59,10 +59,8 @@ p.user_name {
 
 ul.box_btn {
   display: flex;
-  color: #ffffff;
 }
 li.box_btn {
-  color: #ffffff;
   display: inline-block;
   list-style: none;
   line-height: 20px;
@@ -70,6 +68,9 @@ li.box_btn {
   
 }
 
+.fa {
+  color: white;
+}
 
 
 .main_chat {
