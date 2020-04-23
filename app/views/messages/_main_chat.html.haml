@@ -1,0 +1,29 @@
+.main_chat
+  
+  .main_chat__top
+    .main_chat__top__group
+      test
+      .main_chat__top__group__member
+        Member masa
+    .main_chat__top__edit
+      Edit
+
+  .main_chat__center
+    .main_chat__center__table
+      %ul.main_chat__center__table__info
+        %li.main_chat__center__table__info__user_name 
+          masa
+        %li.main_chat__center__table__info__date 
+          2019/11/20(Wed) 17:43:01
+      %p.main_chat__center__table__message
+        おはよう！
+  
+  .main_chat__bottom
+    %form.main_chat__bottom__form
+      .main_chat__bottom__form__box
+        %input.main_chat__bottom__form__box__text{type: "text", placeholder: "type a message"}
+          %label.main_chat__bottom__form__box__text__image_btn
+            = icon('fas', 'image')
+        %input.main_chat__bottom__form__box__image_file{type: "file"}
+      %input.main_chat__bottom__form__send_btn{type: "submit", value: "Send"}
+        
