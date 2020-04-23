@@ -1,0 +1,19 @@
+.side_bar
+  .side_bar__top
+    .side_bar__top__box
+      %p.side_bar__top__box__user_name
+        masa
+      %ul.side_bar__top__box__btn
+        %li.side_bar__top__box__btn
+          =link_to '#' do
+            =icon('fa', 'edit', class: 'ul') 
+        %li.side_bar__top__box__btn
+          =link_to '#' do
+            =icon('fa', 'cog', class: 'box_btn')
+
+  .side_bar__groups
+    .side_bar__groups__table
+      .side_bar__groups__table__group_name
+        techcamp
+      .side_bar__groups__table__group_message
+        まだメッセージがありません
