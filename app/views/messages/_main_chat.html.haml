@@ -1,29 +1,22 @@
 .main_chat
-  
   .main_chat__top
     .main_chat__top__group
-      test
+      = @group.name
       .main_chat__top__group__member
-        Member masa
+        Menber :
+        - @group.users.each do|user|
+          = user.name 
     .main_chat__top__edit
-      Edit
-
+      = link_to 'Edit', edit_group_path(@group), class: 'edit_btn'
+      
   .main_chat__center
-    .main_chat__center__table
-      %ul.main_chat__center__table__info
-        %li.main_chat__center__table__info__user_name 
-          masa
-        %li.main_chat__center__table__info__date 
-          2019/11/20(Wed) 17:43:01
-      %p.main_chat__center__table__message
-        おはよう！
+    = render @messages
   
   .main_chat__bottom
-    %form.main_chat__bottom__form
-      .main_chat__bottom__form__box
-        %input.main_chat__bottom__form__box__text{type: "text", placeholder: "type a message"}
-          %label.main_chat__bottom__form__box__text__image_btn
-            = icon('fas', 'image')
-        %input.main_chat__bottom__form__box__image_file{type: "file"}
-      %input.main_chat__bottom__form__send_btn{type: "submit", value: "Send"}
-        
+    = form_for [@group, @message] do |f|
+      .main_chat__bottom__message
+        = f.text_field :content, class:'main_chat__bottom__message__box', placeholder: ' type a message'
+        = f.label :image, class: 'main_chat__bottom__message__image' do
+          = icon('fas', 'image')
+          = f.file_field :image, class: 'main_chat__bottom__message__image__hidden'
+      = f.submit 'Send', class: 'main_chat__bottom__send_btn'
