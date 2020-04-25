@@ -2,18 +2,22 @@
   .side_bar__top
     .side_bar__top__box
       %p.side_bar__top__box__user_name
-        masa
+        = current_user.name
       %ul.side_bar__top__box__btn
         %li.side_bar__top__box__btn
-          =link_to '#' do
-            =icon('fa', 'edit', class: 'ul') 
+          = link_to new_group_path do
+            = icon('fa', 'edit', class: 'ul') 
         %li.side_bar__top__box__btn
-          =link_to '#' do
-            =icon('fa', 'cog', class: 'box_btn')
+          = link_to edit_user_path(current_user) do
+            = icon('fa', 'cog', class: 'box_btn')
 
   .side_bar__groups
     .side_bar__groups__table
-      .side_bar__groups__table__group_name
-        techcamp
-      .side_bar__groups__table__group_message
-        まだメッセージがありません
+      .side_bar__groups__table__groups_name
+        - current_user.groups.each do |group|
+          .side_bar__groups__table__groups_name__group
+            = link_to group_messages_path(group), class: 'group-name' do
+              .side_bar__groups__table__groups_name__group__name
+                = group.name
+              .side_bar__groups__table__groups_name__group__message
+                = group.show_last_message
