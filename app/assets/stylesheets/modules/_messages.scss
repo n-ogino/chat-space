@@ -75,7 +75,6 @@
     border-bottom: 1px solid #eeeeee;
     display: flex;
     position: relative;
-    overflow: scroll;
     &__group {
       padding-top: 35px;
       padding-left: 40px;
@@ -107,23 +106,26 @@
     width: calc(100vw - 300px);
     padding: 40px;
     overflow: scroll;
-    &__info {
+    &__box {
       padding-bottom:40px;
-      display: flex;
-      &__user_name {
-        color: #333333;
-        font-size: 16px;
-        font-weight: bold;
+      &__info {
+        padding-bottom: 12px;
+        display: flex;
+        &__user_name {
+          color: #333333;
+          font-size: 16px;
+          font-weight: bold;
+        }
+        &__date {
+          color: #999999;
+          font-size: 12px;
+          margin-left: 10px;
+        }
       }
-      &__date {
-        color: #999999;
-        font-size: 12px;
-        margin-left: 10px;
+      &__message {
+        font-size: 14px;
+        color: #434A54;
       }
-    }
-    &__message {
-      font-size: 14px;
-      color: #434A54;
     }
   }
 
