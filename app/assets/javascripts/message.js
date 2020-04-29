@@ -2,7 +2,7 @@ $(function() {
   function buildHTML(message){
     if (message.image) {
       var html = 
-        `<div class="main_chat__center__box">
+        `<div class="main_chat__center__box" data-message-id=${message.id}>
           <div class="main_chat__center__box__info">
             <div class="main_chat__center__box__info__user_name">
               ${message.user_name}
@@ -15,13 +15,13 @@ $(function() {
             <p class="lower-message__content">
               ${message.content}
             </p>
-            <img src=${message.image.url} >
+            <img src=${message.image} >
           </div>
         </div>`
       return html;
     } else {
       var html =
-      `<div class="main_chat__center__box">
+      `<div class="main_chat__center__box" data-message-id=${message.id}>
         <div class="main_chat__center__box__info">
           <div class="main_chat__center__box__info__user_name">
             ${message.user_name}
@@ -65,5 +65,32 @@ $(function() {
     })
     
   })
+
+  var reloadMessages = function() {
+    var last_message_id = $('.main_chat__center:last').data("message-id");
+    $.ajax({
+      url: "api/messages",
+      type: 'GET',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      if (messages.length !== 0) {
+        var insertHTML = '';
+        $.each(messages, function(i, message) {
+          insertHTML += buildHTML(message)
+        });
+        $('.main_chat__center').append(insertHTML);
+        $('.main_chat__center').animate({ scrollTop: $('.main_chat__center')[0].scrollHeight});
+      }
+    })
+    .fail(function() {
+      alert('error');
+    });
+  };
+
+  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+    setInterval(reloadMessages, 7000);
+  }
 });
  
