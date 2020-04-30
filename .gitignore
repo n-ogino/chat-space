@@ -15,8 +15,6 @@
 
 # Ignore Byebug command history file.
 .byebug_history
-<<<<<<< Updated upstream
 .DS_Store
-=======
 public/uploads/*
->>>>>>> Stashed changes
+config/secrets.yml
