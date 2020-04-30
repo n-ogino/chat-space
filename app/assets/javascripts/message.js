@@ -21,21 +21,21 @@ $(function() {
       return html;
     } else {
       var html =
-      `<div class="main_chat__center__box" data-message-id=${message.id}>
-        <div class="main_chat__center__box__info">
-          <div class="main_chat__center__box__info__user_name">
-            ${message.user_name}
+        `<div class="main_chat__center__box" data-message-id=${message.id}>
+          <div class="main_chat__center__box__info">
+            <div class="main_chat__center__box__info__user_name">
+              ${message.user_name}
+            </div>
+            <div class="main_chat__center__box__info__date">
+              ${message.created_at}
+            </div>
           </div>
-          <div class="main_chat__center__box__info__date">
-            ${message.created_at}
+          <div class="main_chat__center__box__message">
+            <p class="lower-message__content">
+              ${message.content}
+            </p>
           </div>
-        </div>
-        <div class="main_chat__center__box__message">
-          <p class="lower-message__content">
-            ${message.content}
-          </p>
-        </div>
-      </div>`
+        </div>`
       return html;
     };
   }
@@ -67,7 +67,7 @@ $(function() {
   })
 
   var reloadMessages = function() {
-    var last_message_id = $('.main_chat__center:last').data("message-id");
+    var last_message_id = $('.main_chat__center__box:last').data("message-id");
     $.ajax({
       url: "api/messages",
       type: 'GET',

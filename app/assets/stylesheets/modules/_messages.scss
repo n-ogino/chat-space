@@ -35,7 +35,7 @@
     height: calc(100vh - 100px);
     background-color: #2f3e51;
     width: 300px;
-    
+    overflow: auto;
     &__table {
       height: 100px;
       width: 300px;
@@ -105,7 +105,7 @@
     height: calc(100vh - 190px);
     width: calc(100vw - 300px);
     padding: 40px;
-    overflow: scroll;
+    overflow: auto;
     &__box {
       padding-bottom:40px;
       &__info {
